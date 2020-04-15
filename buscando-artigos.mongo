@@ -1,0 +1,9 @@
+db.autores.findOne({
+    "artigos.slug":"projeto-caelum-nas-faculdades"
+})
+
+db.autores.find({"artigos.slug":"projeto-caelum-nas-faculdades"},
+{
+    "artigos.titulo":1,
+    "artigos.conteudo":1
+})
