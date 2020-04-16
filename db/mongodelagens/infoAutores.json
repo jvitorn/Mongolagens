@@ -1,0 +1,28 @@
+{ 
+    "_id" : ObjectId("5e987225266946a602db5dc7"), 
+    "nome" : "Gabs Ferreira", 
+    "email" : "gabs@caelum.com.br", 
+    "descricao" : "Desenvolvedor,Instrutor e Criador de conteudo", 
+    "senha" : "gabs1234"
+},
+{ 
+    "_id" : ObjectId("5e987225266946a602db5dc8"), 
+    "nome" : "Felipe Nascimento", 
+    "email" : "felipe@alura.com.br", 
+    "descricao" : "Escritor do blog da Alura", 
+    "senha" : "senha"
+},
+{ 
+    "_id" : ObjectId("5e987225266946a602db5dc9"), 
+    "nome" : "Yuri Matheus", 
+    "email" : "yuri@alura.com.br", 
+    "descricao" : "Instrutor na Alura", 
+    "senha" : "senha"
+},
+{ 
+    "_id" : ObjectId("5e98b092502082186c3c38ab"), 
+    "nome" : "Yan Orestes", 
+    "email" : "yan@caelum.com.br", 
+    "senha" : "yan1234", 
+    "descricao" : "Instrutor e Desenvolvedor na Alura"
+}
