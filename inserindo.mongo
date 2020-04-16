@@ -1,0 +1,57 @@
+// sempre que for inserir um artigo , devera seguir essa ierarquia
+// primeiro inserir um autor
+db.infoAutores.insertOne({
+    nome:"Yan Orestes",
+    email:"yan@caelum.com.br",
+    senha:"yan1234",
+    descricao:"Instrutor e Desenvolvedor na Alura"    
+
+})
+
+//apos isso puxar os dados desse autor
+var autorInfo = db.infoAutores.findOne({
+    email:"yan@caelum.com.br"
+})
+
+//depois inserir um artigo com aquele autor
+db.artigos.insertOne({
+    autor:{
+        nome:autorInfo.nome,
+        descricao:autorInfo.descricao,
+        id_info:autorInfo._id
+    },
+    slug:"dicas-politicas-de-senha",
+    titulo:"Algumas dicas importantes sobre políticas de senha",
+    conteudo:"Complementando isso, é tão ingênuo quanto malicioso acreditar que a responsabilidade de se ter senhas seguras está apenas nas mãos do usuário. É claro, não podemos (ou ainda, não devemos) garantir que a senha do usuário seja ideal e segura quanto desejamos. Mesmo assim, nossa participação nessa escolha de senha pode ser importantíssima.",
+    dataCriado:ISODate('2019-05-05'),
+    categorias:["Arquitetura","Programação"],
+    comentarios:[]
+})
+
+//inserindo comentarios
+var documento = db.artigos.findOneUpdate({
+    slug:"dicas-politicas-de-senha"
+},{
+    $push:{
+        comentarios:{
+            $each:[
+                {
+                    nome:"Giovanni",
+                    email:"giovanni@alura.com.br",
+                    texto:"Achei muito legal esse artigo!",
+                    data:ISODate('2019-09-24')
+                }
+            ],
+            $position:0
+        }
+    }
+},{returnNewDocument:true})
+
+db.comentarios.insertOne({
+    id_artigo:documento._id,
+    nome:"Giovanni",
+    email:"giovanni@alura.com.br",
+    texto:"Achei muito legal esse artigo!",
+    data:ISODate('2019-09-24')
+})
+
